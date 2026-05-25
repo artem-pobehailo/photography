@@ -85,19 +85,26 @@ padding-bottom: 80px;
 .card-thumb {
     position: relative;
     overflow: hidden; 
-     
+      border-radius: 20px;
 }
 
 .image {
-   position: relative;
-    overflow: hidden; 
-    border-radius: 20px;
-    opacity: 0.8;
-    background: linear-gradient(360deg, #241f24 0%, rgba(91, 91, 91, 0.45) 34.11%, rgba(187, 186, 192, 0.26) 62.5%);
-    width: 100%;
-  
-  
+     object-fit: cover;
+     width: 100%;
+    height: 100%;
+     transition: transform 0.5s ease;
+}
 
+.card-thumb:hover .image {
+  transform: scale(1.05); 
+}
+
+.card-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 
@@ -167,10 +174,10 @@ color: #fff;
 .items:nth-child(4n + 2) { grid-column: span 2; }
 .items:nth-child(4n + 3) { grid-column: span 2; }
 .items:nth-child(4n + 4) { grid-column: span 1; }
-.life .items:nth-child(5) {grid-column: span 2; 
-}
-.life .items:nth-child(6) {grid-column: span 1; 
-}
+
+.life .items:nth-child(5) {grid-column: span 2; }
+.life .items:nth-child(6) {grid-column: span 1; }
+
 .fashion .items:nth-child( 1) { grid-column: span 1; }
 .fashion .items:nth-child(2) { grid-column: span 1; grid-row: span 2;}
 .fashion .items:nth-child(3) { grid-column: span 1; }
